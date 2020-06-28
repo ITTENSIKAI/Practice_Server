@@ -1,0 +1,86 @@
+# Mbed OS code style definition file for astyle
+
+# Don't create backup files, let git handle it
+suffix=none
+
+# K&R style
+style=kr
+
+# Mbed OS code style definition file for astyle
+
+# Don't create backup files, let git handle it
+suffix=none
+
+# 1 TBS addition to k&r, add braces to one liners
+# Use -j as it was changed in astyle from brackets to braces, this way it is compatible with older astyle versions
+-j
+
+# 4 spaces, convert tabs to spaces
+indent=spaces=4
+convert-tabs
+
+# Indent switches and cases
+indent-switches
+indent-preproc-block
+indent-modifiers
+indent-namespaces
+indent-continuation=4
+indent-preproc-block
+indent-preproc-define
+indent-col1-comments
+max-continuation-indent=80
+
+# Padding Options
+break-blocks
+break-blocks=all
+
+# Remove spaces in and around parentheses
+unpad-paren
+
+# Insert a space after if, while, for, and around operators
+pad-header
+pad-oper
+pad-comma
+
+unpad-method-prefix
+pad-return-type
+pad-param-type
+
+pad-method-colon=after
+
+unpad-paren
+pad-paren-out
+pad-first-paren-out
+pad-paren-in
+
+delete-empty-lines
+
+# Pointer/reference operators go next to the name (on the right)
+align-pointer=name
+align-reference=name
+align-method-colon
+
+# Formatting Options
+break-closing-braces
+add-braces
+add-one-line-braces
+
+# Attach { for classes and namespaces
+attach-return-type
+attach-namespaces
+attach-inlines
+attach-classes
+attach-closing-while
+
+# Extend longer lines, define maximum 120 value. This results in aligned code,
+# otherwise the lines are broken and not consistent
+max-continuation-indent=120
+max-code-length=120
+break-after-logical
+
+# Options
+
+
+
+
+

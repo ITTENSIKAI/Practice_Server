@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.renderWhitespace": "all",
+		"uncrustify.configPath.windows": ".tools/uncrustify/cfg/_cpp.cfg",
+		"files.exclude": {
+			"**/.git": true
+		}
+	}
+}
