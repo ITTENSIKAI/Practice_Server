@@ -6,6 +6,7 @@
 	],
 	"settings": {
 		"editor.renderWhitespace": "all",
+		"trailing-spaces.trimOnSave": true,
 		"uncrustify.configPath.windows": ".tools/uncrustify/cfg/_cpp.cfg",
 		"files.exclude": {
 			"**/.git": true
