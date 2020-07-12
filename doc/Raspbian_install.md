@@ -1,6 +1,6 @@
 # Raspbian のセットアップ
 
-@import "../_assets/style.less"
+<link rel="stylesheet" type="text/css" href="_assets/style.less">
 
 ## SDカードの用意
 

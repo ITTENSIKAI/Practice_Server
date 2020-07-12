@@ -1,13 +1,11 @@
-# HTTP化
+# Webサーバー化
 
-@import "doc/style.less"
-<link rel="stylesheet" type="text/css" href="doc/style.less">
+<link rel="stylesheet" type="text/css" href="_assets/style.less">
 
 ## キーワード
 | キーワード    | 概要                     |
 | :------------ | :----------------------- |
 | /var/www/html | apacheのファイルの格納先 |
-
 
 ## 使用ソフト
 
@@ -29,12 +27,13 @@
 | ソフト名           | 選定理由                           | インストールコマンド |
 | :----------------- | :--------------------------------- | :------------------- |
 | スクリーンセーバー | 画面を暗転させたくないため         | apt-                 |
-| overlayFS          | シャットダウンしない電源断するため |                      |
 
 
 ## 設定手順
 
 ### HTTPSへアクセス可能にする
+
+#### 1. apache2のインストール
 
 Web Speech APIはHTTPSでないと毎回マイクの確認をすることになるので、下記のサイトを参考にWeb Server化してHTTPSにアクセスする。
 
@@ -48,6 +47,9 @@ https://variax.wordpress.com/2017/03/18/adding-https-to-the-raspberry-pi-apache-
 sudo apt-get update
 sudo apt-get install apache2 openssl
 ```
+
+#### 2. 証明書の作成
+
 ``` bash
 # 証明書の作成
 ## 証明書は「/etc/ssl/certs」にインストールされるが、専用のパスに生成します。
@@ -67,6 +69,9 @@ sudo cp default-ssl.conf raspberrypi_orwhatever.conf
 sudo nano raspberrypi_orwhatever.conf
 ```
 
+#### 3. 証明書の設定
+
+
 ```txt
 # 下記のようにヘッダを変更してください。
 <VirtualHost raspberrypi_orwhatever:443>
@@ -75,6 +80,9 @@ SSLCertificateFile /etc/ssl/localcerts/apache.pem
 SSLCertificateKeyFile /etc/ssl/localcerts/apache.key
 ```
 
+
+#### 4. サーバーの再起動
+
 ```bash
 # サイトの有効化
 sudo a2ensite raspberrypi_orwhatever
@@ -82,3 +90,24 @@ sudo a2ensite raspberrypi_orwhatever
 sudo service apache2 restart
 ```
 
+### gitとの連携
+
+```bash
+# 自身のホームディレクトリに移動
+cd
+# gitの情報をコピー
+git clone https://github.com/ITTENSIKAI/Practice_Server
+
+# gitに格納したページとWebサーバーをリンクさせる
+cd /var/www/html
+sudo ln -s ~/Practice_Server/src/www/html my
+```
+
+
+
+
+### PHPをインストールする
+
+```bash
+sudo apt install php
+```
